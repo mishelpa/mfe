@@ -16,12 +16,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps: 
-    
+   
       - uses: actions/setup-node@v2
         with:
           node-version: 16
+      - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
+      - run: npm ci
           
       - uses: actions/checkout@v2
+        with: 
+          persist-credentials: false
       - run: npm install
       - run: npm run build
 
