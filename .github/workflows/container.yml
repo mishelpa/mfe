@@ -20,8 +20,8 @@ jobs:
       - run: npm config get registry
       - run: npm config list
       - run: npm config list -l
-      - run: cat /home/runner/.npmrc
-      - run: npm install
+      - run: npm install --verbose
+      - run: cat ~/.npmrc
       - run: npm run build
 
       - uses: shinyinc/action-aws-cli@v1.2
