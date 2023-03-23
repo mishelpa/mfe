@@ -18,7 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm config get registry
+      - run: npm config list
       - run: npm config list -l
+      - run: cat /home/runner/.npmrc
       - run: npm install
       - run: npm run build
 
